@@ -15,17 +15,13 @@ public class MerchantDTO {
     private Integer id;
 
     @NotBlank
-    private String nameTh;
-
-    @NotBlank
-    private String nameEn;
+    private String name;
 
     @ValueOfEnum(enumClass = Category.class)
     private String category;
 
-    @Pattern(regexp = Constants.PHONE_NUMBER_REGEX)
-    @Size(min = 9, max = 9)
-    private String phoneNumber;
+    @Pattern(regexp = Constants.MOBILE_NUMBER_REGEX)
+    private String mobileNumber;
 
     @Email
     private String email;
