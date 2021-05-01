@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "merchants")
+@Table(name = "merchant")
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
