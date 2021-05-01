@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface MerchantService {
 
-    MerchantDTO saveMerchant(MerchantDTO merchantDTO);
+    MerchantDTO save(MerchantDTO merchantDTO);
 
-    List<MerchantDTO> findAllMerchant();
+    List<MerchantDTO> findAll();
 
-    MerchantDTO findMerchantById(Integer id);
+    MerchantDTO findById(Integer id);
 
 }

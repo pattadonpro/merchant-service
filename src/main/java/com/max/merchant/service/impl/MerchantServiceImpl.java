@@ -20,18 +20,18 @@ public class MerchantServiceImpl implements MerchantService {
     @Autowired
     private MerchantMapper merchantMapper;
 
-    public MerchantDTO saveMerchant(MerchantDTO merchantDTO) {
+    public MerchantDTO save(MerchantDTO merchantDTO) {
         Merchant merchant = merchantMapper.toEntity(merchantDTO);
         Merchant savedMerchant = merchantRepository.save(merchant);
         return merchantMapper.toDto(savedMerchant);
     }
 
-    public List<MerchantDTO> findAllMerchant() {
+    public List<MerchantDTO> findAll() {
         List<Merchant> merchants = merchantRepository.findAll();
         return merchantMapper.toDto(merchants);
     }
 
-    public MerchantDTO findMerchantById(Integer id) {
+    public MerchantDTO findById(Integer id) {
         Merchant merchant = merchantRepository.findById(id).get();
         return merchantMapper.toDto(merchant);
     }

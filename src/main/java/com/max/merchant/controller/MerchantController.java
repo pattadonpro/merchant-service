@@ -26,26 +26,26 @@ public class MerchantController {
 
     @GetMapping
     public ResponseEntity<List<MerchantDTO>> getAllMerchant() {
-        List<MerchantDTO> result = merchantService.findAllMerchant();
+        List<MerchantDTO> result = merchantService.findAll();
         return ResponseEntity.ok(result);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<MerchantDTO> getMerchantById(@PathVariable Integer id) {
-        MerchantDTO result = merchantService.findMerchantById(id);
+        MerchantDTO result = merchantService.findById(id);
         return ResponseEntity.ok(result);
     }
 
     @PostMapping
     public ResponseEntity<MerchantDTO> createMerchant(@Valid @RequestBody MerchantDTO merchantDTO) throws URISyntaxException {
-        MerchantDTO result = merchantService.saveMerchant(merchantDTO);
+        MerchantDTO result = merchantService.save(merchantDTO);
         return ResponseEntity.created(new URI("/api/merchants")).body(result);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<MerchantDTO> updateMerchant(@Valid @RequestBody MerchantDTO merchantDTO, @PathVariable Integer id) {
         merchantDTO.setId(id);
-        MerchantDTO result = merchantService.saveMerchant(merchantDTO);
+        MerchantDTO result = merchantService.save(merchantDTO);
         return ResponseEntity.ok(result);
     }
 }
