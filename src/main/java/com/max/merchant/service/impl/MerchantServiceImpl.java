@@ -3,6 +3,7 @@ package com.max.merchant.service.impl;
 import com.max.merchant.domain.Merchant;
 
 import com.max.merchant.domain.dto.MerchantDTO;
+import com.max.merchant.exception.ResourceNotFoundException;
 import com.max.merchant.mapper.MerchantMapper;
 import com.max.merchant.repository.MerchantRepository;
 import com.max.merchant.service.MerchantService;
@@ -32,7 +33,8 @@ public class MerchantServiceImpl implements MerchantService {
     }
 
     public MerchantDTO findById(Integer id) {
-        Merchant merchant = merchantRepository.findById(id).get();
+        Merchant merchant = merchantRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Merchant not found"));
         return merchantMapper.toDto(merchant);
     }
 }
