@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import java.util.Map;
 @AllArgsConstructor
 @Getter
 public class ErrorResponse {
-    private Date timestamp;
+    private ZonedDateTime timestamp;
     private int status;
     private String message;
     private List<Map<String, String>> fieldErrors;

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class ControllerExceptionHandler {
             fieldErrors.add(map);
         });
         return new ErrorResponse(
-                new Date(),
+                ZonedDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
                 null,
                 fieldErrors,
@@ -38,7 +38,7 @@ public class ControllerExceptionHandler {
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ErrorResponse handleResourceNotFoundException(ResourceNotFoundException e, final HttpServletRequest request) {
         return new ErrorResponse(
-                new Date(),
+                ZonedDateTime.now(),
                 HttpStatus.NOT_FOUND.value(),
                 e.getMessage(),
                 null,
@@ -49,7 +49,7 @@ public class ControllerExceptionHandler {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleGlobalException(Exception e, final HttpServletRequest request) {
         return new ErrorResponse(
-                new Date(),
+                ZonedDateTime.now(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 e.getMessage(),
                 null,
