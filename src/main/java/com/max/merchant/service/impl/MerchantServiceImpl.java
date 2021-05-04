@@ -6,19 +6,19 @@ import com.max.merchant.domain.dto.MerchantDTO;
 import com.max.merchant.mapper.MerchantMapper;
 import com.max.merchant.repository.MerchantRepository;
 import com.max.merchant.service.MerchantService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class MerchantServiceImpl implements MerchantService {
 
-    @Autowired
-    private MerchantRepository merchantRepository;
+    private final MerchantRepository merchantRepository;
 
-    @Autowired
-    private MerchantMapper merchantMapper;
+    private final MerchantMapper merchantMapper;
 
     public MerchantDTO save(MerchantDTO merchantDTO) {
         Merchant merchant = merchantMapper.toEntity(merchantDTO);
