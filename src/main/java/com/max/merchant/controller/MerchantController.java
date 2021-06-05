@@ -3,7 +3,6 @@ package com.max.merchant.controller;
 import com.max.merchant.domain.dto.MerchantDTO;
 import com.max.merchant.service.MerchantService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
